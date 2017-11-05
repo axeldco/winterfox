@@ -1,0 +1,143 @@
+// _typography.scss
+
+h1,h2,h3,h4,h5,h6 {
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#333;
+    font-weight:bold;
+}
+
+small {
+    font-size:65%;
+    line-height:1;
+    font-weight:400;
+}
+
+h1 {
+    @include font-size(28px);
+}
+
+h2 {
+    @include font-size(24px);   
+}
+
+h3{
+    @include font-size(20px);
+}
+
+h4{
+    @include font-size(18px);
+}
+
+h5{
+    @include font-size(16px);
+}
+
+h6{
+    @include font-size(14px);
+}
+
+ul,ol {
+    padding-left:40px;
+    display:block;
+}
+
+ul {
+    list-style: disc outside;
+    li {
+        text-align: -webkit-match-parent;
+        display:list-item;
+    }
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    li {
+        text-align: -webkit-match-parent;
+        display:list-item;
+    }   
+}
+
+strong {
+    font-weight:600;   
+}
+
+em {
+    font-style: italic;   
+}
+
+blockquote {
+    display:inline-block;
+    @include gradientAngle(transparent,#EEE,0deg);
+    padding:20px;
+    color:#333;
+    margin-bottom:$elementmargin;
+    position:relative;
+    &:after {
+        content:'\201D';
+        font-family:Arial;
+        position:absolute;
+        top:-25px;
+        right:-20px;
+        font-size:120px;
+        color:$blue;
+        @include transform(rotate(-15deg));
+    }
+    cite {
+
+    }
+    p {
+        @include font-size(14px);   
+    }
+    footer {
+        margin-top:$elementmargin;
+        display:block;
+        font-size:90%;
+        font-style:italic;
+        color:rgba(0,0,0,0.5);
+        background:transparent;
+        padding:0px;
+    }
+}
+
+p, ol, ul {
+    @include font-size(16px);
+    line-height:24px;
+    color:#888;
+    margin-bottom:$elementmargin;
+    &:last-of-type {
+        margin-bottom:0px;
+    }
+}
+
+p {
+    &.lead {
+        @include font-size(20px);
+        line-height:26px;
+    }
+}
+
+a {
+    @include transition(300ms all);
+    text-decoration:none;
+    position:relative;
+    display:inline-block;
+    &:hover {
+        color:$blue;
+        text-decoration:none;   
+    }
+    &:focus {
+        text-decoration:none;   
+    }
+    &:visited {
+        color:darken($blue,5%);   
+    }
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}

@@ -1,0 +1,45 @@
+// _grid.scss
+
+//$grid--columns:12;
+//$grid--maxwidth:1170px;
+//$grid--padding:0px 10px;
+//$grid--margin:0 auto;
+
+.grid {
+    width: 100%;
+    max-width:$grid--maxwidth;
+    display:block;
+    position: relative;
+    margin:$grid--margin;
+    padding:$grid--padding;
+    &:after {
+        @extend .tabclear;
+    }
+    &.fluid {
+        max-width:100%;    
+    }
+}
+
+.column {
+    width: 100%;
+    padding:$grid--padding;
+    position: relative;
+    min-height: 1px;
+    float: left;
+    &.center {
+        float:none;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .grid {
+        margin-left:-20px;   
+        margin-right:-20px;   
+        width:calc(100% + 40px);
+    }
+}
+
+@for $i from 1 through $grid--columns { 
+    .lg#{$i} { 
+        width: 100% / $grid--columns * $i;
+    }
+}

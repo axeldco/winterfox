@@ -1,0 +1,110 @@
+// _mixins.scss
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+@mixin border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+@mixin boxShadow($boxshadow) {
+    -webkit-box-shadow:$boxshadow;
+    box-shadow:$boxshadow;
+}
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+@mixin boxShadow($boxshadow) { 
+    box-shadow:$boxshadow;
+}
+@mixin gradient($start-color, $end-color, $orientation) { 
+    background: $start-color;
+    @if $orientation == 'vertical' {
+      background: -webkit-linear-gradient(top, $start-color, $end-color);
+      background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+      background: -webkit-linear-gradient(left, $start-color, $end-color);
+      background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+      background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+      background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+@mixin gradientAngle($start-color, $end-color, $angle) { 
+    background: $start-color;
+    background: -webkit-linear-gradient($angle, $start-color, $end-color);
+    background: linear-gradient($angle, $start-color, $end-color);
+}
+@mixin borderRadius($border-radius) {
+    -webkit-border-radius:$border-radius;   
+    -moz-border-radius:$border-radius;   
+    -o-border-radius:$border-radius;   
+    border-radius:$border-radius;   
+}
+@mixin borderRadiusSeperate($top-left-radius, $top-right-radius, $bottom-left-radius, $bottom-right-radius) { 
+    @include prefix(border-top-left-radius, $top-left-radius, 'webkit' 'moz');
+    @include prefix(border-top-right-radius, $top-right-radius, 'webkit' 'moz');
+    @include prefix(border-bottom-right-radius, $bottom-right-radius, 'webkit' 'moz');
+    @include prefix(border-bottom-left-radius, $bottom-left-radius, 'webkit' 'moz');
+}
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    -o-transform: $transforms;
+    transform: $transforms;
+}
+@mixin transformOrigin($x,$y) {
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin: $x $y;
+    -ms-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    transform-origin: $x $y;
+}
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+@mixin filter($filter-type,$filter-amount) { 
+    -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+    -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+    -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+    -o-filter: $filter-type+unquote('(#{$filter-amount})');
+    filter: $filter-type+unquote('(#{$filter-amount})');
+}
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
+@mixin media($class) {
+  @if $class == mobile {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $class == tablet-portrait {
+    @media (min-width: 768px) and (max-width:991px) { @content; }
+  }
+  @else if $class == tablet-landscape {
+    @media (min-width: 992px) and (max-width: 1199px) { @content; }
+  }
+  @else if $class == desktop {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: mobile, tablet-portrait, tablet-landscape, desktop";
+  }
+}

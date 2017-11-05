@@ -1,0 +1,64 @@
+// winterfox SCSS framework
+// https://winterfox.co
+// authors: Siobhan (ravyre.com) - Axel (axeld.co)
+// copyright 2017
+
+@charset "UTF-8";
+
+/* fonts
+-_-_-_-_-_-_-_-_-_-_- */
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400,500,600,700');
+$copy: 'Fira Sans', sans-serif;
+
+/* global
+-_-_-_-_-_-_-_-_-_-_- */
+
+@import 'components/vars';
+@import 'components/mixins';
+@import 'components/reset';
+@import 'components/material-icons';
+
+/* imports
+-_-_-_-_-_-_-_-_-_-_- */
+
+@import 'components/grid';
+@import 'components/navi';
+@import 'components/typography';
+@import 'components/buttons';
+
+
+/* general
+-_-_-_-_-_-_-_-_-_-_- */
+
+html, body {
+    font-family:$copy;
+}
+
+body {
+    padding:0;
+    margin:0;
+    overflow-x:hidden;
+    min-width:320px;
+    background-color:#FFF;
+}
+
+header {
+    min-height:240px;
+    background-color:$blue;
+    margin-bottom:$elementmargin;
+}
+
+.logo {
+    height:auto;
+    width:200px;
+    max-width:100%;
+}
+
+.block {
+    width:100%;
+    min-height:50px;
+    padding:20px;
+    border:1px solid #EEE;
+    margin-bottom:$elementmargin;
+}

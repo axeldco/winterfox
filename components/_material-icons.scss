@@ -1,0 +1,22 @@
+// _material-icons.scss
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    @include font-size(20px);
+    margin-top:-2px;
+    display: inline-block;
+    line-height:1px;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+    vertical-align: middle;
+}

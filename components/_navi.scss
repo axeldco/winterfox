@@ -1,0 +1,26 @@
+// _navi.scss
+
+nav {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    padding:$nav--padding;
+    .brand {
+        @include font-size(28px);
+        color:#FFF;
+    }
+    .menu {
+        display:block;
+        margin-bottom:0px;
+        padding-left:0px;
+        list-style-type:none;
+        li {
+            padding:8px;
+            display:inline-block;
+            a {
+                color:#FFF;
+            }
+        }
+    }
+}

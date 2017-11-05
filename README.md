@@ -3,5 +3,4 @@
 winterfox SCSS framework
 
 ## Authors
-Siobhan
-Axel
+Siobhan & Axel

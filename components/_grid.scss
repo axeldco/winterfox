@@ -5,6 +5,7 @@
 //$grid--padding:0px 10px;
 //$grid--margin:0 auto;
 
+// Grid Container
 .grid {
     width: 100%;
     max-width:$grid--maxwidth;
@@ -20,6 +21,8 @@
     }
 }
 
+// Columns E.g.
+// <div class="column lg6"></div>
 .column {
     width: 100%;
     padding:$grid--padding;
